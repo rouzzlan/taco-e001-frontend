@@ -1,0 +1,198 @@
+<mat-card class="list-ingredients-card" *ngIf="firstFormGroup && secondFormGroup">
+  <mat-card-title>
+    Execute order 66
+  </mat-card-title>
+  <mat-card-content>
+    <mat-stepper [linear]="isLinear" #stepper>
+      <mat-step [stepControl]="firstFormGroup" *ngIf="firstFormGroup">
+        <ng-template matStepLabel>Fill out your name</ng-template>
+        <form [formGroup]="firstFormGroup">
+          <div class="mat-field-full-width">
+            <div class="centerField">
+              <mat-form-field class="mat-field-width">
+                <mat-label>Taco name</mat-label>
+                <input matInput placeholder="Taco name" formControlName="tacoName" required>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row-container">
+            <div class="ingredient-card-container">
+              <mat-card class="ingredient-card-item">
+                <mat-card-header>Wrap</mat-card-header>
+                <mat-card-content
+                  *ngIf="wrapIngredientsData && wrapIngredientsData.length > 0; else noIngredientsAvailable">
+                  <div *ngFor="let ingredient of ingredientsWrapFormArray.controls; let i = index"
+                       class="ingredient-checkbox">
+                    <label formArrayName="wrapIngredients">
+                      <input type="checkbox" [formControlName]="i">
+                      {{wrapIngredientsData[i].name}}
+                    </label>
+                  </div>
+                </mat-card-content>
+              </mat-card>
+              <mat-card class="ingredient-card-item">
+                <mat-card-header>Protein</mat-card-header>
+                <mat-card-content
+                  *ngIf="proteinIngredientsData && proteinIngredientsData.length > 0; else noIngredientsAvailable">
+                  <div *ngFor="let ingredient of ingredientsProteinFormArray.controls; let i = index"
+                       class="ingredient-checkbox">
+                    <label formArrayName="proteinIngredients">
+                      <input type="checkbox" [formControlName]="i">
+                      {{proteinIngredientsData[i].name}}
+                    </label>
+                  </div>
+                </mat-card-content>
+              </mat-card>
+            </div>
+            <div class="ingredient-card-container">
+              <mat-card class="ingredient-card-item">
+                <mat-card-header>Veggies</mat-card-header>
+                <mat-card-content
+                  *ngIf="veggiesIngredientsData && veggiesIngredientsData.length > 0; else noIngredientsAvailable">
+                  <div *ngFor="let ingredient of ingredientsVeggiesFormArray.controls; let i = index"
+                       class="ingredient-checkbox">
+                    <label formArrayName="veggiesIngredients">
+                      <input type="checkbox" [formControlName]="i">
+                      {{veggiesIngredientsData[i].name}}
+                    </label>
+                  </div>
+                </mat-card-content>
+              </mat-card>
+              <mat-card class="ingredient-card-item">
+                <mat-card-header>Cheese</mat-card-header>
+                <mat-card-content
+                  *ngIf="cheeseIngredientsData && cheeseIngredientsData.length > 0; else noIngredientsAvailable">
+                  <div *ngFor="let ingredient of ingredientsCheeseFormArray.controls; let i = index"
+                       class="ingredient-checkbox">
+                    <label formArrayName="cheeseIngredients">
+                      <input type="checkbox" [formControlName]="i">
+                      {{cheeseIngredientsData[i].name}}
+                    </label>
+                  </div>
+                </mat-card-content>
+              </mat-card>
+            </div>
+            <div class="ingredient-card-container">
+              <mat-card class="ingredient-card-item">
+                <mat-card-header>Sauce</mat-card-header>
+                <mat-card-content
+                  *ngIf="sauceIngredientsData && sauceIngredientsData.length > 0; else noIngredientsAvailable">
+                  <div *ngFor="let ingredient of ingredientsSouseFormArray.controls; let i = index"
+                       class="ingredient-checkbox">
+                    <label formArrayName="sauceIngredients">
+                      <input type="checkbox" [formControlName]="i">
+                      {{sauceIngredientsData[i].name}}
+                    </label>
+                  </div>
+                </mat-card-content>
+              </mat-card>
+            </div>
+          </div>
+          <div>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="secondFormGroup" label="Fill out your address">
+        <ng-template matStepLabel>Address info</ng-template>
+        <form [formGroup]="secondFormGroup">
+          <div class="mat-field-full-width">
+            <mat-form-field class="input-field-width">
+              <mat-label>Name</mat-label>
+              <input matInput formControlName="name" placeholder="Firstname Surname" size="30"
+                     required>
+            </mat-form-field>
+          </div>
+          <div class="mat-field-full-width">
+            <mat-form-field class="input-field-width">
+              <mat-label>Street address</mat-label>
+              <input matInput formControlName="street_address" placeholder="Street 123"
+                     required>
+            </mat-form-field>
+          </div>
+          <div class="mat-field-full-width">
+            <mat-form-field class="input-field-width">
+              <mat-label>City</mat-label>
+              <input matInput formControlName="city" placeholder="City"
+                     required>
+            </mat-form-field>
+          </div>
+          <div class="mat-field-full-width">
+            <mat-form-field class="input-field-width">
+              <mat-label>State</mat-label>
+              <input matInput formControlName="state" placeholder="State"
+                     required>
+            </mat-form-field>
+          </div>
+          <div class="mat-field-full-width">
+            <mat-form-field class="input-field-width">
+              <mat-label>Zip code</mat-label>
+              <input matInput formControlName="zip" placeholder="Zip code"
+                     required>
+            </mat-form-field>
+          </div>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="thirdFormGroup" label="Payment data">
+        <ng-template matStepLabel>Payment info</ng-template>
+        <form [formGroup]="thirdFormGroup">
+          <div class="mat-field-full-width">
+            <mat-form-field class="input-field-width">
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="email" placeholder="Email to which we send payment info"
+                     required>
+            </mat-form-field>
+          </div>
+          <div class="mat-field-full-width">
+            <mat-form-field class="input-field-width">
+              <mat-label>Card number</mat-label>
+              <input matInput formControlName="card" placeholder="Card number"
+                     required>
+            </mat-form-field>
+          </div>
+          <div class="mat-field-full-width">
+            <mat-form-field class="input-field-width">
+              <mat-label>Card expiration date</mat-label>
+              <input matInput formControlName="expiration" placeholder="Card expiration date"
+                     required>
+            </mat-form-field>
+          </div>
+          <div class="mat-field-full-width">
+            <mat-form-field class="input-field-width">
+              <mat-label>CVV</mat-label>
+              <input matInput formControlName="cvv" placeholder="CVV"
+                     required>
+            </mat-form-field>
+          </div>
+        </form>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext (click)="loadDataFromForm()">Next</button>
+        </div>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        <p>You are now done.</p>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button (click)="loadDataFromForm()">Extract all data</button>
+          <button mat-button (click)="submitOrder()">Submit order</button>
+          <button mat-button (click)="stepper.reset()">Reset</button>
+        </div>
+      </mat-step>
+    </mat-stepper>
+  </mat-card-content>
+</mat-card>
+
+
+<ng-template #noIngredientsAvailable>
+  <mat-card-content>
+    <p>
+      No ingredients of this type available
+    </p>
+  </mat-card-content>
+</ng-template>

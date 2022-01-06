@@ -1,0 +1,24 @@
+<div>
+  <div *ngIf="form">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div *ngIf="wrapIngredientsData" style="background-color: #b9b9b9">
+        <div *ngFor="let ingredient of wrapIngredientsFormArray.controls; let i = index" class="ingredient-checkbox">
+          <label formArrayName="wrapIngredients">
+            <input type="checkbox" [formControlName]="i">
+            {{wrapIngredientsData[i].name}}
+          </label>
+        </div>
+      </div>
+      <div *ngIf="proteinIngredientsData" style="background-color: #e0e0e0">
+        <div *ngFor="let ingredient of proteinIngredientsFormArray.controls; let i = index" class="ingredient-checkbox">
+          <label formArrayName="proteinIngredients">
+            <input type="checkbox" [formControlName]="i">
+            {{proteinIngredientsData[i].name}}
+          </label>
+        </div>
+      </div>
+      <button>submit</button>
+    </form>
+  </div>
+
+</div>

@@ -1,0 +1,26 @@
+<mat-card class="tacos-card" *ngIf="taco">
+  <mat-card-title>
+    Taco: {{taco.name}}
+  </mat-card-title>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item>ID: {{taco.id}}</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>Date created: {{taco.createdAt | date}}</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>Ingeredients:
+        <mat-chip-list *ngFor="let ingredient of taco.ingredients">
+          <mat-chip>{{ingredient.name}}</mat-chip>
+        </mat-chip-list>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+  <mat-card-actions style="display: flex">
+    <button mat-raised-button (click)="backToList()" style="margin-left: auto">
+      Back to list
+    </button>
+    <button mat-raised-button color="primary" (click)="onEditTaco(taco.id)">
+      Edit taco
+    </button>
+  </mat-card-actions>
+</mat-card>
