@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   version: '0.0.6-DEV',
-  url: 'http://taco.demo.com:8080'
+  url: 'http://localhost:8080'
 };
 
 /*

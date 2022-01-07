@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
   version: '0.0.6-PROD',
-  url: ''
+  url: 'http://localhost:8080'
 };
