@@ -34,6 +34,8 @@ export class AddTacoComponent implements OnInit {
     let ingIDs: string[] = this.tacoFormGroup.value.ingredients;
     let newTaco: Taco = new Taco();
     newTaco.name = this.tacoFormGroup.value.name;
+    // TODO dummy value, to be removed in future version.
+    newTaco.tacoOrderId = 1;
     newTaco.ingredients = this.extractIngredients(ingIDs, this.ingredientOptions!);
     this.tacoService.createTaco(newTaco).subscribe(taco => {
       this.router.navigate(['/taco-list']).then();

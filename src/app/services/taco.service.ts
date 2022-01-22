@@ -25,6 +25,7 @@ export class TacoService {
     return this.http.get<Taco>(`${environment.url}/v1/tacos/${id}`);
   }
   createTaco(taco: Taco): Observable<Taco> {
+    console.log(taco);
     return this.http.post<Taco>(`${environment.url}/v1/tacos/add`, taco);
   }
 
