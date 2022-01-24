@@ -15,7 +15,66 @@
             Placed at {{order.placedAt | date:'M/d/yy, h:mm a'}}, Client email: {{order.email}}
           </mat-panel-description>
         </mat-expansion-panel-header>
-        <p>I'm visible because I am open</p>
+        <div class="row">
+          <div class="column">
+            <mat-card class="column-card">
+              <mat-card-title>
+                Info
+              </mat-card-title>
+              <mat-card-content>
+                <table style="width:100%">
+                  <tr>
+                    <td>id</td>
+                    <td>{{order.id}}</td>
+                  </tr>
+                  <tr>
+                    <td>Placed at</td>
+                    <td>{{order.placedAt | date:'M/d/yy, h:mm a'}}</td>
+                  </tr>
+                  <tr>
+                    <td>email</td>
+                    <td>{{order.email}}</td>
+                  </tr>
+                  <tr>
+                    <td>Delivery name</td>
+                    <td>{{order.deliveryName}}</td>
+                  </tr>
+                  <tr>
+                    <td>Delivery street</td>
+                    <td>{{order.deliveryStreet}}</td>
+                  </tr>
+                  <tr>
+                    <td>Delivery city</td>
+                    <td>{{order.deliveryCity}}</td>
+                  </tr>
+                  <tr>
+                    <td>Delivery state</td>
+                    <td>{{order.deliveryState}}</td>
+                  </tr>
+                  <tr>
+                    <td>Delivery Zip</td>
+                    <td>{{order.deliveryZip}}</td>
+                  </tr>
+                  <tr>
+                    <td>Credit card number</td>
+                    <td>{{order.ccNumber}}</td>
+                  </tr>
+                  <tr>
+                    <td>Credit card expiration</td>
+                    <td>{{order.ccExpiration}}</td>
+                  </tr>
+                </table>
+              </mat-card-content>
+            </mat-card>
+          </div>
+          <div class="column">
+            <mat-card class="column-card">
+              <mat-card-header>
+                Taco's
+              </mat-card-header>
+            </mat-card>
+          </div>
+        </div>
       </mat-expansion-panel>
     </mat-accordion>
   </mat-card-content>

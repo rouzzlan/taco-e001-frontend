@@ -11,3 +11,16 @@ table {
 .mat-column-actions {
   min-width: 100px;
 }
+
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+}
+
+.column-card {
+  min-height: 300px;
+  min-width: 300px;
+}
