@@ -15,4 +15,8 @@ export class TacoOrderService {
   createTacoOrder(tacoOrder: TacoOrder): Observable<TacoOrder> {
     return this.http.post<TacoOrder>(`${environment.url}/v1/order/add`, tacoOrder);
   }
+
+  getOrders(): Observable<TacoOrder[]> {
+    return this.http.get<TacoOrder[]>(`${environment.url}/v1/order/all`);
+  }
 }
