@@ -74,13 +74,11 @@
               </mat-card-title>
               <mat-card-content>
                 <mat-list>
-                  <mat-list-item>Item 1</mat-list-item>
-                  <mat-divider></mat-divider>
-                  <mat-list-item>Item 2</mat-list-item>
-                  <mat-divider></mat-divider>
-                  <mat-list-item>Item 3</mat-list-item>
+                  <div *ngFor="let taco of tacos">
+                    <mat-list-item>{{taco.name}}</mat-list-item>
+                    <mat-divider></mat-divider>
+                  </div>
                 </mat-list>
-
               </mat-card-content>
             </mat-card>
           </div>
