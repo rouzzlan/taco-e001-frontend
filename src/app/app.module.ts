@@ -28,6 +28,8 @@ import {MatStepperModule} from "@angular/material/stepper";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {OrderConfirmedComponent} from './components/order/order-confirmd/order-confirmed.component';
 import { CcardValidatorDirective } from './validators/ccard-validator.directive';
+import { OrderListComponent } from './components/order/order-list/order-list.component';
+import {MatExpansionModule} from "@angular/material/expansion";
 
 // import { NgXCreditCardsModule } from 'ngx-credit-cards';
 
@@ -44,27 +46,29 @@ import { CcardValidatorDirective } from './validators/ccard-validator.directive'
     EditTacoComponent,
     OrderWindowComponent,
     OrderConfirmedComponent,
-    CcardValidatorDirective
+    CcardValidatorDirective,
+    OrderListComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatMenuModule,
-    MatCardModule,
-    MatTableModule,
-    HttpClientModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    ReactiveFormsModule,
-    MatListModule,
-    MatChipsModule,
-    MatStepperModule,
-    MatCheckboxModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatMenuModule,
+        MatCardModule,
+        MatTableModule,
+        HttpClientModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
+        ReactiveFormsModule,
+        MatListModule,
+        MatChipsModule,
+        MatStepperModule,
+        MatCheckboxModule,
+        MatExpansionModule,
+    ],
   providers: [
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}}
   ],

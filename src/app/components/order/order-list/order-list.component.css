@@ -1,0 +1,39 @@
+table {
+  width: 100%;
+}
+
+.list-orders-card {
+  width: 80%;
+  margin-right: 10%;
+  margin-left: 10%;
+}
+
+.mat-column-actions {
+  min-width: 100px;
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 48%;
+}
+
+.column-right {
+  margin-left: 5px;
+}
+
+.column-card {
+  min-height: 300px;
+  min-width: 300px;
+}
+
+.details-link {
+  margin-left: auto;
+  color: blue;
+}
+
+.details-link:hover {
+  font-weight: bold;
+}

@@ -3,9 +3,13 @@
     <button mat-button routerLink="/">
       Home
     </button>
-    <button mat-button routerLink="/order">
+    <button mat-button [matMenuTriggerFor]="orders">
       Order
     </button>
+    <mat-menu #orders='matMenu'>
+      <button mat-menu-item routerLink="/orders">Load Orders</button>
+      <button mat-menu-item routerLink="/order">Create Order</button>
+    </mat-menu>
     <button mat-button [matMenuTriggerFor]="ingredients">
       Ingredients
     </button>

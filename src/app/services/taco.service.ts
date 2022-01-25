@@ -17,6 +17,10 @@ export class TacoService {
     return this.http.get<Taco[]>(`${environment.url}/v1/tacos/all`);
   }
 
+  getTacosForOrder(orderId: number): Observable<Taco[]> {
+    return this.http.get<Taco[]>(`${environment.url}/v1/tacos/order/${orderId}`);
+  }
+
   performDelete(id: number): Observable<void> {
     return this.http.delete<void>(`${environment.url}/v1/tacos/${id}`)
   }
@@ -24,6 +28,7 @@ export class TacoService {
   getTacoByID(id: number): Observable<Taco> {
     return this.http.get<Taco>(`${environment.url}/v1/tacos/${id}`);
   }
+
   createTaco(taco: Taco): Observable<Taco> {
     console.log(taco);
     return this.http.post<Taco>(`${environment.url}/v1/tacos/add`, taco);

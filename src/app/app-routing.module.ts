@@ -9,7 +9,7 @@ import {TacoDetailComponent} from "./components/Taco/taco-detail/taco-detail.com
 import {AddTacoComponent} from "./components/Taco/add-taco/add-taco.component";
 import {EditTacoComponent} from "./components/Taco/edit-taco/edit-taco.component";
 import {OrderWindowComponent} from "./components/order/order-window/order-window.component";
-import {OrderConfirmedComponent} from "./components/order/order-confirmd/order-confirmed.component";
+import {OrderListComponent} from "./components/order/order-list/order-list.component";
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -21,7 +21,8 @@ const routes: Routes = [
   {path: 'taco-detail/:id', component: TacoDetailComponent},
   {path: 'add-taco', component: AddTacoComponent},
   {path: 'edit-taco/:id', component: EditTacoComponent},
-  {path: 'order', component: OrderWindowComponent}
+  {path: 'order', component: OrderWindowComponent},
+  {path: 'orders', component: OrderListComponent}
 ];
 
 @NgModule({
