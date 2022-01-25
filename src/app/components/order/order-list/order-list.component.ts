@@ -30,4 +30,8 @@ export class OrderListComponent implements OnInit {
     }
   }
 
+  onNavigateTaco(id: number | undefined) {
+    console.log('Navigating to taco detail. taco id: ' + id);
+  }
+
 }

@@ -29,6 +29,11 @@ table {
   min-width: 300px;
 }
 
-.fill-remaining-space {
-  flex: 1 1 auto
+.details-link {
+  margin-left: auto;
+  color: blue;
+}
+
+.details-link:hover {
+  font-weight: bold;
 }
