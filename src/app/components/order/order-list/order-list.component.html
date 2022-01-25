@@ -67,7 +67,7 @@
               </mat-card-content>
             </mat-card>
           </div>
-          <div class="column">
+          <div class="column column-right">
             <mat-card class="column-card">
               <mat-card-title>
                 Taco's
@@ -75,7 +75,14 @@
               <mat-card-content>
                 <mat-list>
                   <div *ngFor="let taco of tacos">
-                    <mat-list-item>{{taco.name}}</mat-list-item>
+                    <mat-list-item>
+                      <div>
+                        {{taco.name}}
+                      </div>
+                      <div style="margin-left: auto">
+                        [Details]
+                      </div>
+                    </mat-list-item>
                     <mat-divider></mat-divider>
                   </div>
                 </mat-list>

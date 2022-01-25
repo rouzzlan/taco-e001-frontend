@@ -17,10 +17,18 @@ table {
 }
 
 .column {
-  flex: 50%;
+  flex: 48%;
+}
+
+.column-right {
+  margin-left: 5px;
 }
 
 .column-card {
   min-height: 300px;
   min-width: 300px;
+}
+
+.fill-remaining-space {
+  flex: 1 1 auto
 }
