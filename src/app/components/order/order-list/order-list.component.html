@@ -7,7 +7,7 @@
   <mat-card-content>
     <mat-accordion>
       <mat-expansion-panel *ngFor="let order of orders | async">
-        <mat-expansion-panel-header>
+        <mat-expansion-panel-header (click)="onClick(order.id)">
           <mat-panel-title>
             {{order.deliveryName}}
           </mat-panel-title>
@@ -69,9 +69,19 @@
           </div>
           <div class="column">
             <mat-card class="column-card">
-              <mat-card-header>
+              <mat-card-title>
                 Taco's
-              </mat-card-header>
+              </mat-card-title>
+              <mat-card-content>
+                <mat-list>
+                  <mat-list-item>Item 1</mat-list-item>
+                  <mat-divider></mat-divider>
+                  <mat-list-item>Item 2</mat-list-item>
+                  <mat-divider></mat-divider>
+                  <mat-list-item>Item 3</mat-list-item>
+                </mat-list>
+
+              </mat-card-content>
             </mat-card>
           </div>
         </div>

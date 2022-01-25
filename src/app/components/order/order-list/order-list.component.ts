@@ -18,4 +18,8 @@ export class OrderListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onClick(id: Number | undefined) {
+    console.log("Id: " + id);
+  }
+
 }
