@@ -19,4 +19,8 @@ export class TacoOrderService {
   getOrders(): Observable<TacoOrder[]> {
     return this.http.get<TacoOrder[]>(`${environment.url}/v1/order/all`);
   }
+
+  getOrderById(id: number): Observable<TacoOrder> {
+    return this.http.get<TacoOrder>(`${environment.url}/v1/order/${id}`);
+  }
 }

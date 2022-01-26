@@ -1,6 +1,8 @@
 <mat-card class="orders-card">
   <mat-card-title>Order detail</mat-card-title>
   <mat-card-content>
-    {{orderId}}
+    <div *ngIf="order | async; let _order">
+      {{_order.id}}
+    </div>
   </mat-card-content>
 </mat-card>
