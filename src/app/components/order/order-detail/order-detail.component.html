@@ -66,9 +66,22 @@
           </mat-card>
         </div>
       </div>
+      <div class="row">
+        <div class="container">
+          <mat-card *ngFor="let taco of _order.tacos" class="item" (click)="onNavigateTaco(taco.id)">
+            <mat-card-header>{{taco.name}}</mat-card-header>
+            <mat-card-content>
+              <p>id: {{taco.id}}</p>
+              <p>created at: {{taco.createdAt | date}}</p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
     </div>
   </mat-card-content>
-  <mat-card-footer>
-
-  </mat-card-footer>
+  <mat-card-actions style="display: flex">
+    <button mat-raised-button (click)="onNavigateToOrders()" style="margin-left: auto">
+      Back to orders
+    </button>
+  </mat-card-actions>
 </mat-card>

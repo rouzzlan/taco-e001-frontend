@@ -35,4 +35,10 @@ export class OrderListComponent implements OnInit {
     console.log('Navigating to taco detail. taco id: ' + id);
     this.router.navigate(['/taco-detail', id]).then();
   }
+
+  onNavigateToOrder(orderId: number | undefined) {
+    if (orderId) {
+      this.router.navigate(['/order-detail', orderId]).then();
+    }
+  }
 }
