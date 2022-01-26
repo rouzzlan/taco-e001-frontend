@@ -35,4 +35,10 @@ export class TacoDetailComponent implements OnInit {
       this.router.navigate(['/edit-taco', id]).then();
     }
   }
+
+  onNavigateToOrder(orderId: number | undefined) {
+    if (orderId) {
+      this.router.navigate(['/order-detail', orderId]).then();
+    }
+  }
 }

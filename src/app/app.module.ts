@@ -30,6 +30,7 @@ import {OrderConfirmedComponent} from './components/order/order-confirmd/order-c
 import { CcardValidatorDirective } from './validators/ccard-validator.directive';
 import { OrderListComponent } from './components/order/order-list/order-list.component';
 import {MatExpansionModule} from "@angular/material/expansion";
+import { OrderDetailComponent } from './components/order/order-detail/order-detail.component';
 
 // import { NgXCreditCardsModule } from 'ngx-credit-cards';
 
@@ -47,7 +48,8 @@ import {MatExpansionModule} from "@angular/material/expansion";
     OrderWindowComponent,
     OrderConfirmedComponent,
     CcardValidatorDirective,
-    OrderListComponent
+    OrderListComponent,
+    OrderDetailComponent
   ],
     imports: [
         BrowserModule,
