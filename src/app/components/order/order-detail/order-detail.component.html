@@ -2,7 +2,73 @@
   <mat-card-title>Order detail</mat-card-title>
   <mat-card-content>
     <div *ngIf="order | async; let _order">
-      {{_order.id}}
+      <div class="row">
+        <div class="column">
+          <mat-card class="column-card">
+            <mat-card-title>Info</mat-card-title>
+            <mat-card-content>
+              <table style="width:100%">
+                <tr>
+                  <td>id</td>
+                  <td>{{_order.id}}</td>
+                </tr>
+                <tr>
+                  <td>Placed at</td>
+                  <td>{{_order.placedAt | date:'M/d/yy, h:mm a'}}</td>
+                </tr>
+                <tr>
+                  <td>email</td>
+                  <td>{{_order.email}}</td>
+                </tr>
+                <tr>
+                  <td>Credit card number</td>
+                  <td>{{_order.ccNumber}}</td>
+                </tr>
+                <tr>
+                  <td>Credit card expiration</td>
+                  <td>{{_order.ccExpiration}}</td>
+                </tr>
+                <tr>
+                  <td>Credit card CVV</td>
+                  <td>{{_order.ccCVV}}</td>
+                </tr>
+              </table>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <div class="column column-right">
+          <mat-card class="column-card">
+            <mat-card-title>Delivery details</mat-card-title>
+            <mat-card-content>
+              <table style="width:100%">
+                <tr>
+                  <td>Delivery name</td>
+                  <td>{{_order.deliveryName}}</td>
+                </tr>
+                <tr>
+                  <td>Delivery street</td>
+                  <td>{{_order.deliveryStreet}}</td>
+                </tr>
+                <tr>
+                  <td>Delivery city</td>
+                  <td>{{_order.deliveryCity}}</td>
+                </tr>
+                <tr>
+                  <td>Delivery state</td>
+                  <td>{{_order.deliveryState}}</td>
+                </tr>
+                <tr>
+                  <td>Delivery Zip</td>
+                  <td>{{_order.deliveryZip}}</td>
+                </tr>
+              </table>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
     </div>
   </mat-card-content>
+  <mat-card-footer>
+
+  </mat-card-footer>
 </mat-card>
