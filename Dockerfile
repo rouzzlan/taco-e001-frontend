@@ -11,4 +11,5 @@ RUN npm run build --prod
 # Stage 2
 FROM nginx:1.21.6-alpine
 COPY --from=build-step /app/dist/taco-angular /usr/share/nginx/html
+EXPOSE 80
 

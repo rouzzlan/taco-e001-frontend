@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: taco-angular
+  name: taco-angular
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: taco-angular
+  strategy: { }
+  template:
+    metadata:
+      labels:
+        app: taco-angular
+    spec:
+      containers:
+        - image: rouzzlan/taco-angular:latest
+          name: spring-angular-app
+          ports:
+            - containerPort: 80
