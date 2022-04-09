@@ -20,7 +20,7 @@
             "allowedCommonJsDependencies": [
               "card-validator"
             ],
-            "outputPath": "../../public",
+            "outputPath": "dist/taco-angular",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -40,8 +40,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "1500kb",
+                  "maximumError": "10mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -107,5 +107,5 @@
       }
     }
   },
-  "defaultProject": "angular-app"
+  "defaultProject": "taco-angular"
 }
