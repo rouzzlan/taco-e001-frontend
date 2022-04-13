@@ -16,7 +16,7 @@ spec:
         app: taco-angular
     spec:
       containers:
-        - image: rouzzlan/taco-angular:latest
+        - image: rouzzlan/taco-angular:0.0.7
           name: spring-angular-app
           ports:
             - containerPort: 80
