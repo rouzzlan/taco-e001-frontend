@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>60</x>
+      <y>160</y>
+      <w>140</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>Deployment
+--
+name: taco-demo
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>320</x>
+      <y>160</y>
+      <w>160</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>Service
+--
+name: taco-demo</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>600</x>
+      <y>160</y>
+      <w>220</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>Ingress
+--
+name: minimal-ingress</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>190</x>
+      <y>170</y>
+      <w>150</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>130.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>470</x>
+      <y>170</y>
+      <w>150</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>130.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>20</x>
+      <y>370</y>
+      <w>320</w>
+      <h>420</h>
+    </coordinates>
+    <panel_attributes>taco-demo.jaml
+--
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: taco-demo
+  name: taco-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: taco-demo
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: taco-demo
+    spec:
+      containers:
+      - image: rouzzlan/spring-angular:0.0.2
+        name: spring-angular
+        resources: {}
+status: {}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>380</x>
+      <y>390</y>
+      <w>230</w>
+      <h>280</h>
+    </coordinates>
+    <panel_attributes>taco-demo-service.jaml
+--
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: taco-demo
+  name: taco-demo
+spec:
+  ports:
+  - nodePort: 32000
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: taco-demo
+  type: NodePort</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>650</x>
+      <y>450</y>
+      <w>350</w>
+      <h>330</h>
+    </coordinates>
+    <panel_attributes>ingress.jaml
+--
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: minimal-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: taco.demo.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: taco-demo
+            port:
+              number: 80
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>120</x>
+      <y>200</y>
+      <w>30</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;170.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>410</x>
+      <y>200</y>
+      <w>30</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>200</y>
+      <w>30</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;250.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>670</x>
+      <y>820</y>
+      <w>240</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>kubectl create -f ingress.yaml</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>380</x>
+      <y>690</y>
+      <w>250</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>
+kubectl edit svc taco-demo
+kubectl describe svc taco-demo</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>820</y>
+      <w>410</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>kubectl create -f taco-demo.yam
+kubectl scale deployment taco-demo --replicas=3</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>810</x>
+      <y>260</y>
+      <w>330</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>URL's..
+bg=blue
+http://taco.demo.com/ingredient-list
+http://taco.demo.com/v1/ingredients/all</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>810</x>
+      <y>170</y>
+      <w>180</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;160.0;10.0;160.0;90.0</additional_attributes>
+  </element>
+</diagram>
