@@ -36,4 +36,10 @@ export class IngredientListComponent implements OnInit {
     });
   }
 
+  public performEnable(id: string): void {
+    this.ingredientService.enableIngredient(id).subscribe(() => {
+      this.loadIngredients();
+    });
+  }
+
 }

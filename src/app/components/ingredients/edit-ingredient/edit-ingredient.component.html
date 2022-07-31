@@ -6,15 +6,13 @@
     <mat-card-content>
       <p>
         <mat-form-field class="mat-field-full-width">
-          <mat-label>Code</mat-label>
-          <input matInput [formControl]="idFC">
-        </mat-form-field>
-      </p>
-      <p>
-        <mat-form-field class="mat-field-full-width">
           <mat-label>Name</mat-label>
           <input matInput [formControl]="nameFC">
         </mat-form-field>
+      </p>
+      <p>
+        <mat-label>Ingredient enabled:</mat-label>
+        <mat-checkbox formControlName="isEnabled"></mat-checkbox>
       </p>
       <p *ngIf="types | async">
         <mat-form-field class="mat-field-full-width">

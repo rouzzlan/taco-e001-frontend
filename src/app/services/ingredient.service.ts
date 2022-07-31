@@ -28,6 +28,10 @@ export class IngredientService {
     return this.http.put(`${environment.server_url_cud}/v1/ingredients/disable/${id}`, null);
   }
 
+  enableIngredient(id: string): any {
+    return this.http.put(`${environment.server_url_cud}/v1/ingredients/enable/${id}`, null);
+  }
+
   createIngredient(ingredient: Ingredient): Observable<Ingredient> {
     return this.http.post<Ingredient>(`${environment.server_url_cud}/v1/ingredients/add`, ingredient);
   }
