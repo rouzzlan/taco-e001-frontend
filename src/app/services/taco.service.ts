@@ -14,27 +14,26 @@ export class TacoService {
   }
 
   getTacos(): Observable<Taco[]> {
-    return this.http.get<Taco[]>(`${environment.url}/v1/tacos/all`);
+    return this.http.get<Taco[]>(`${environment.server_url_r}/v1/tacos/all`);
   }
 
   getTacosForOrder(orderId: number): Observable<Taco[]> {
-    return this.http.get<Taco[]>(`${environment.url}/v1/tacos/order/${orderId}`);
+    return this.http.get<Taco[]>(`${environment.server_url_r}/v1/tacos/order/${orderId}`);
   }
 
   performDelete(id: number): Observable<void> {
-    return this.http.delete<void>(`${environment.url}/v1/tacos/${id}`)
+    return this.http.delete<void>(`${environment.server_url_cud}/v1/tacos/${id}`)
   }
 
   getTacoByID(id: number): Observable<Taco> {
-    return this.http.get<Taco>(`${environment.url}/v1/tacos/${id}`);
+    return this.http.get<Taco>(`${environment.server_url_r}/v1/tacos/${id}`);
   }
 
   createTaco(taco: Taco): Observable<Taco> {
-    console.log(taco);
-    return this.http.post<Taco>(`${environment.url}/v1/tacos/add`, taco);
+    return this.http.post<Taco>(`${environment.server_url_cud}/v1/tacos/add`, taco);
   }
 
   updateTaco(taco: Taco): Observable<Taco> {
-    return this.http.put<Taco>(`${environment.url}/v1/tacos/update`, taco)
+    return this.http.put<Taco>(`${environment.server_url_cud}/v1/tacos/update`, taco)
   }
 }

@@ -13,26 +13,26 @@ export class IngredientService {
   }
 
   getIngredients(): Observable<Ingredient[]> {
-    return this.http.get<Ingredient[]>(`${environment.url}/v1/ingredients/all`);
+    return this.http.get<Ingredient[]>(`${environment.server_url_r}/v1/ingredients/all`);
   }
 
   deleteIngredient(id: string): any {
-    return this.http.delete(`${environment.url}/v1/ingredients/${id}`);
+    return this.http.delete(`${environment.server_url_cud}/v1/ingredients/${id}`);
   }
 
   createIngredient(ingredient: Ingredient): Observable<Ingredient> {
-    return this.http.post<Ingredient>(`${environment.url}/v1/ingredients/add`, ingredient);
+    return this.http.post<Ingredient>(`${environment.server_url_cud}/v1/ingredients/add`, ingredient);
   }
 
   getIngredientTypes(): Observable<string[]> {
-    return this.http.get<string[]>(`${environment.url}/v1/ingredients/get/ingredient/types`);
+    return this.http.get<string[]>(`${environment.server_url_r}/v1/ingredients/get/ingredient/types`);
   }
 
   getIngredientByID(id: string): Observable<Ingredient> {
-    return this.http.get<Ingredient>(`${environment.url}/v1/ingredients/${id}`);
+    return this.http.get<Ingredient>(`${environment.server_url_r}/v1/ingredients/${id}`);
   }
 
   updateIngredient(ingredient: Ingredient) : Observable<Ingredient> {
-    return this.http.put<Ingredient>(`${environment.url}/v1/ingredients/${ingredient.id}`, ingredient)
+    return this.http.put<Ingredient>(`${environment.server_url_cud}/v1/ingredients/${ingredient.id}`, ingredient)
   }
 }

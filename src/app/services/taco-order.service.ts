@@ -13,14 +13,14 @@ export class TacoOrderService {
   }
 
   createTacoOrder(tacoOrder: TacoOrder): Observable<TacoOrder> {
-    return this.http.post<TacoOrder>(`${environment.url}/v1/order/add`, tacoOrder);
+    return this.http.post<TacoOrder>(`${environment.server_url_cud}/v1/order/add`, tacoOrder);
   }
 
   getOrders(): Observable<TacoOrder[]> {
-    return this.http.get<TacoOrder[]>(`${environment.url}/v1/order/all`);
+    return this.http.get<TacoOrder[]>(`${environment.server_url_r}/v1/order/all`);
   }
 
   getOrderById(id: number): Observable<TacoOrder> {
-    return this.http.get<TacoOrder>(`${environment.url}/v1/order/${id}`);
+    return this.http.get<TacoOrder>(`${environment.server_url_r}/v1/order/${id}`);
   }
 }

@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   version: '0.0.7-DEV',
-  url: 'http://localhost:8080'
+  server_url_r: 'http://localhost:8081',
+  server_url_cud: 'http://localhost:8082'
 };
 
 /*
