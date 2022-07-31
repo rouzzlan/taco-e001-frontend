@@ -43,7 +43,7 @@ export class AddTacoComponent implements OnInit {
   }
 
   private loadIngredients(): void {
-    this.ingredientService.getIngredients().subscribe(value => {
+    this.ingredientService.getEnabledIngredients().subscribe(value => {
       this.ingredientOptions = value;
     })
   }
