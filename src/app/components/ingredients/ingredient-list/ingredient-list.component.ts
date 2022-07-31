@@ -30,8 +30,14 @@ export class IngredientListComponent implements OnInit {
     this.router.navigate(['/edit-ingredient', id]).then();
   }
 
-  public performDelete(id: string): void {
-    this.ingredientService.deleteIngredient(id).subscribe(() => {
+  public performDisable(id: string): void {
+    this.ingredientService.disableIngredient(id).subscribe(() => {
+      this.loadIngredients();
+    });
+  }
+
+  public performEnable(id: string): void {
+    this.ingredientService.enableIngredient(id).subscribe(() => {
       this.loadIngredients();
     });
   }

@@ -16,8 +16,20 @@ export class IngredientService {
     return this.http.get<Ingredient[]>(`${environment.server_url_r}/v1/ingredients/all`);
   }
 
+  getEnabledIngredients(): Observable<Ingredient[]> {
+    return this.http.get<Ingredient[]>(`${environment.server_url_r}/v1/ingredients/all/enabled`);
+  }
+
   deleteIngredient(id: string): any {
     return this.http.delete(`${environment.server_url_cud}/v1/ingredients/${id}`);
+  }
+
+  disableIngredient(id: string): any {
+    return this.http.put(`${environment.server_url_cud}/v1/ingredients/disable/${id}`, null);
+  }
+
+  enableIngredient(id: string): any {
+    return this.http.put(`${environment.server_url_cud}/v1/ingredients/enable/${id}`, null);
   }
 
   createIngredient(ingredient: Ingredient): Observable<Ingredient> {

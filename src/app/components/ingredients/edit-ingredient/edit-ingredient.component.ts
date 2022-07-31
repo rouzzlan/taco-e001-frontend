@@ -16,17 +16,17 @@ export class EditIngredientComponent implements OnInit {
   ingredient: Ingredient | undefined;
   types: Observable<string[]> | undefined;
   ingredientFormGroup: FormGroup;
-  idFC: FormControl = new FormControl(null, [Validators.required, Validators.max(4)]);
   nameFC: FormControl = new FormControl(null, [Validators.required, Validators.min(3), Validators.max(15)]);
   typeFC: FormControl = new FormControl(null, Validators.required);
+  isEnabledFC: FormControl = new FormControl(null, Validators.required);
 
   constructor(private ingredientService: IngredientService,
               private router: Router,
               private route: ActivatedRoute) {
     this.ingredientFormGroup = new FormGroup({
-      id: this.idFC,
       name: this.nameFC,
-      type: this.typeFC
+      type: this.typeFC,
+      isEnabled: this.isEnabledFC
     });
     this.ingredientID = this.route.snapshot.params.id;
   }
@@ -37,18 +37,17 @@ export class EditIngredientComponent implements OnInit {
 
   public loadData(): void {
     this.ingredientService.getIngredientByID(this.ingredientID).subscribe((_ingredient) => {
-      this.ingredientFormGroup.patchValue({id: _ingredient.id});
       this.ingredientFormGroup.patchValue({name: _ingredient.name});
       this.ingredientFormGroup.patchValue({type: _ingredient.type});
+      this.ingredientFormGroup.patchValue({isEnabled: _ingredient.isEnabled});
       this.ingredient = _ingredient;
-      console.log(_ingredient);
     });
     this.types = this.ingredientService.getIngredientTypes();
   }
 
   onSubmit() {
     if (this.ingredient) {
-      this.ingredient.id = this.ingredientFormGroup.value.id;
+      this.ingredient.isEnabled = this.ingredientFormGroup.value.isEnabled;
       this.ingredient.name = this.ingredientFormGroup.value.name;
       this.ingredient.type = this.ingredientFormGroup.value.type;
       this.ingredientService.updateIngredient(this.ingredient).subscribe(() => {

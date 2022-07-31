@@ -16,7 +16,7 @@ import {EditIngredientComponent} from './components/ingredients/edit-ingredient/
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatSelectModule} from "@angular/material/select";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {TacoListComponent} from './components/Taco/taco-list/taco-list.component';
 import {TacoDetailComponent} from './components/Taco/taco-detail/taco-detail.component';
 import {MatListModule} from "@angular/material/list";
@@ -70,6 +70,7 @@ import { OrderDetailComponent } from './components/order/order-detail/order-deta
         MatStepperModule,
         MatCheckboxModule,
         MatExpansionModule,
+        FormsModule,
     ],
   providers: [
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}}
