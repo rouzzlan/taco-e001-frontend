@@ -1,2 +1,7 @@
-<app-toolbar-public></app-toolbar-public>
+<div *ngIf="isLoggedIn | async;else other_content">
+  <app-toolbar-private></app-toolbar-private>
+</div>
 <router-outlet></router-outlet>
+<ng-template #other_content>
+  <app-toolbar-public></app-toolbar-public>
+</ng-template>

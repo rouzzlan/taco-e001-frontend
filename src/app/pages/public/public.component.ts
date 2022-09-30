@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-public',
@@ -6,8 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./public.component.css']
 })
 export class PublicComponent implements OnInit {
+  isLoggedIn: Promise<boolean>;
 
-  constructor() { }
+  constructor(private authService: AuthService) {
+    this.isLoggedIn = this.authService.tokenExpired();
+  }
 
   ngOnInit(): void {
   }
