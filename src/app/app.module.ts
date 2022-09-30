@@ -31,6 +31,10 @@ import { CcardValidatorDirective } from './validators/ccard-validator.directive'
 import { OrderListComponent } from './components/order/order-list/order-list.component';
 import {MatExpansionModule} from "@angular/material/expansion";
 import { OrderDetailComponent } from './components/order/order-detail/order-detail.component';
+import { RedirectComponent } from './components/auth/redirect/redirect.component';
+import { SessionExpiredComponent } from './components/auth/session-expired/session-expired.component';
+import { PreLoginComponent } from './components/auth/pre-login/pre-login.component';
+import {httpInterceptorProviders} from "./interceptor/interceptors";
 
 // import { NgXCreditCardsModule } from 'ngx-credit-cards';
 
@@ -49,7 +53,10 @@ import { OrderDetailComponent } from './components/order/order-detail/order-deta
     OrderConfirmedComponent,
     CcardValidatorDirective,
     OrderListComponent,
-    OrderDetailComponent
+    OrderDetailComponent,
+    RedirectComponent,
+    SessionExpiredComponent,
+    PreLoginComponent
   ],
     imports: [
         BrowserModule,
@@ -73,7 +80,8 @@ import { OrderDetailComponent } from './components/order/order-detail/order-deta
         FormsModule,
     ],
   providers: [
-    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}}
+    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}},
+    httpInterceptorProviders
   ],
   bootstrap: [AppComponent]
 })

@@ -11,9 +11,14 @@ import {EditTacoComponent} from "./components/Taco/edit-taco/edit-taco.component
 import {OrderWindowComponent} from "./components/order/order-window/order-window.component";
 import {OrderListComponent} from "./components/order/order-list/order-list.component";
 import {OrderDetailComponent} from "./components/order/order-detail/order-detail.component";
+import {PreLoginComponent} from "./components/auth/pre-login/pre-login.component";
+import {RedirectComponent} from "./components/auth/redirect/redirect.component";
 
 const routes: Routes = [
-  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: '', redirectTo: 'welcome', pathMatch: 'full'},
+  {path: 'welcome', component: PreLoginComponent},
+  {path: 'login-redirect', component: RedirectComponent},
+  {path: 'logout-redirect', component: RedirectComponent},
   {path: 'home', component: HomeComponent},
   {path: 'ingredient-list', component: IngredientListComponent},
   {path: 'add-ingredient', component: AddIngredientComponent},
