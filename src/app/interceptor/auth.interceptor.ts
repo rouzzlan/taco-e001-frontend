@@ -21,7 +21,7 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     if (req.url.startsWith(environment.baseUrl)) {
       if (!this.authService.tokenExpiredSync()) {
-        this.authService.navigateSessionExpired();
+        this.authService.navigateSessionExpired().then();
         return next.handle(req);
       } else {
         const accessToken = this.authService.getAccessToken();

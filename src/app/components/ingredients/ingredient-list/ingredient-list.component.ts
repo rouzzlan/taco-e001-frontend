@@ -26,8 +26,8 @@ export class IngredientListComponent implements OnInit {
     })
   }
 
-  public performUpdate(id: string) : void {
-    this.router.navigate(['/edit-ingredient', id]).then();
+  public performUpdate(id: string): void {
+    this.router.navigate(['/', 'private', 'edit-ingredient', id]).then();
   }
 
   public performDisable(id: string): void {

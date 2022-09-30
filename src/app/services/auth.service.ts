@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {SignoutResponse, User, UserManager} from "oidc-client";
 import {Router} from "@angular/router";
 import {environment} from "../../environments/environment";
@@ -52,11 +52,11 @@ export class AuthService {
       // console.log(user)
       if (user === null || user === undefined) {
         console.log('No user in storage');
-        this.router.navigate(['/session-expired']).then();
+        this.router.navigate(['/', 'public', 'session-expired']).then();
         return false;
       } else if (user?.expires_in <= 0 && user?.expired) {
         console.log('AuthGuard: token expired');
-        this.router.navigate(['/session-expired']).then();
+        this.router.navigate(['/', 'public', 'session-expired']).then();
         return false;
       } else {
         return true;
@@ -77,7 +77,7 @@ export class AuthService {
   }
 
   async navigateSessionExpired() {
-    await this.router.navigate(['/session-expired']).then();
+    await this.router.navigate(['/', 'public', 'session-expired']).then();
 
   }
 }

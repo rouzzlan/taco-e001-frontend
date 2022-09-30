@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from "../../../services/auth.service";
 
 @Component({
   selector: 'app-pre-login',
@@ -8,14 +7,10 @@ import {AuthService} from "../../../services/auth.service";
 })
 export class PreLoginComponent implements OnInit {
 
-  constructor(private authService: AuthService) {
+  constructor() {
   }
 
   ngOnInit(): void {
-  }
-
-  loginEvent() {
-    this.authService.startSignin();
   }
 
 

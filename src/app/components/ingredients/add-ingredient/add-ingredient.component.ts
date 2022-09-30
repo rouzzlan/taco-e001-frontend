@@ -40,7 +40,7 @@ export class AddIngredientComponent implements OnInit {
     ingredient.name = this.ingredientFormGroup.value.name;
     ingredient.type = this.ingredientFormGroup.value.type;
     this.ingredientService.createIngredient(ingredient).subscribe(() => {
-      this.router.navigate(['/ingredient-list']).then();
+      this.router.navigate(['/', 'private', 'ingredient-list']).then();
     });
   }
 }

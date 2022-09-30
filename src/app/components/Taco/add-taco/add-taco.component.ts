@@ -38,7 +38,7 @@ export class AddTacoComponent implements OnInit {
     newTaco.tacoOrderId = 1;
     newTaco.ingredients = this.extractIngredients(ingIDs, this.ingredientOptions!);
     this.tacoService.createTaco(newTaco).subscribe(taco => {
-      this.router.navigate(['/taco-list']).then();
+      this.router.navigate(['/', 'private', 'taco-list']).then();
     })
   }
 

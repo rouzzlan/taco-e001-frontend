@@ -26,11 +26,11 @@ export class TacoListComponent implements OnInit {
   }
 
   performUpdate(id: number) {
-    this.router.navigate(['/edit-taco', id]).then();
+    this.router.navigate(['/', 'private', 'edit-taco', id]).then();
   }
 
   navigateToDetail(id: number) {
-    this.router.navigate(['/taco-detail', id]).then();
+    this.router.navigate(['/', 'private', 'taco-detail', id]).then();
   }
 
   performDelete(id: number) {

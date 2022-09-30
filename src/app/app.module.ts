@@ -35,6 +35,11 @@ import { RedirectComponent } from './components/auth/redirect/redirect.component
 import { SessionExpiredComponent } from './components/auth/session-expired/session-expired.component';
 import { PreLoginComponent } from './components/auth/pre-login/pre-login.component';
 import {httpInterceptorProviders} from "./interceptor/interceptors";
+import { ToolbarPrivateComponent } from './parts/toolbar-private/toolbar-private.component';
+import { ToolbarPublicComponent } from './parts/toolbar-public/toolbar-public.component';
+import { PublicComponent } from './pages/public/public.component';
+import { PrivateComponent } from './pages/private/private.component';
+import { LoggedOutComponent } from './components/auth/logged-out/logged-out.component';
 
 // import { NgXCreditCardsModule } from 'ngx-credit-cards';
 
@@ -56,7 +61,12 @@ import {httpInterceptorProviders} from "./interceptor/interceptors";
     OrderDetailComponent,
     RedirectComponent,
     SessionExpiredComponent,
-    PreLoginComponent
+    PreLoginComponent,
+    ToolbarPrivateComponent,
+    ToolbarPublicComponent,
+    PublicComponent,
+    PrivateComponent,
+    LoggedOutComponent
   ],
     imports: [
         BrowserModule,

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../../../services/auth.service";
 import {Router} from "@angular/router";
 
@@ -9,16 +9,17 @@ import {Router} from "@angular/router";
 })
 export class RedirectComponent implements OnInit {
   constructor(private authService: AuthService,
-              private router: Router) { }
+              private router: Router) {
+  }
 
   ngOnInit(): void {
     if (this.router.url.startsWith('/login-redirect')) {
       this.authService.completeLogin().then(() => {
-        this.router.navigate(['/home'], {replaceUrl: true}).then();
+        this.router.navigate(['/', 'private', 'home'], {replaceUrl: true}).then();
       });
     } else {
       this.authService.completeLogout().then(() => {
-        this.router.navigate(['/'], {replaceUrl: true}).then();
+        this.router.navigate(['/', 'public', 'logged-out'], {replaceUrl: true}).then();
       });
     }
   }

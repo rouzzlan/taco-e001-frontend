@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {TacoOrderService} from "../../../services/taco-order.service";
 import {TacoOrder} from "../../../model/tacoOrder.model";
@@ -21,11 +21,11 @@ export class OrderDetailComponent implements OnInit {
 
   onNavigateTaco(id: number | undefined) {
     console.log('Navigating to taco detail. taco id: ' + id);
-    this.router.navigate(['/taco-detail', id]).then();
+    this.router.navigate(['/', 'private', 'taco-detail', id]).then();
   }
 
   onNavigateToOrders() {
-    this.router.navigate(["/orders"]).then();
+    this.router.navigate(['/', 'private', 'orders']).then();
   }
 
 }

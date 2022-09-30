@@ -77,6 +77,6 @@ export class EditTacoComponent implements OnInit {
   }
 
   backToList() {
-    this.router.navigate(['/taco-list']).then();
+    this.router.navigate(['/', 'private', 'taco-list']).then();
   }
 }

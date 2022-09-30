@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TacoOrderService} from "../../../services/taco-order.service";
 import {Observable} from "rxjs";
 import {TacoOrder} from "../../../model/tacoOrder.model";
@@ -33,12 +33,12 @@ export class OrderListComponent implements OnInit {
 
   onNavigateTaco(id: number | undefined) {
     console.log('Navigating to taco detail. taco id: ' + id);
-    this.router.navigate(['/taco-detail', id]).then();
+    this.router.navigate(['/', 'private', 'taco-detail', id]).then();
   }
 
   onNavigateToOrder(orderId: number | undefined) {
     if (orderId) {
-      this.router.navigate(['/order-detail', orderId]).then();
+      this.router.navigate(['/', 'private', 'order-detail', orderId]).then();
     }
   }
 }

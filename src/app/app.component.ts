@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {environment} from "../environments/environment";
+import {AuthService} from "./services/auth.service";
 
 @Component({
   selector: 'app-root',
@@ -9,8 +10,10 @@ import {environment} from "../environments/environment";
 export class AppComponent {
   title = 'angular-app';
   version: string;
+  isLoggedIn: boolean = false;
 
-  constructor() {
+  constructor(private authService: AuthService) {
     this.version = environment.version;
+    this.isLoggedIn = !!(authService.getLoggedInUser());
   }
 }

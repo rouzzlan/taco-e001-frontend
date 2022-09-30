@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TacoService} from "../../../services/taco.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Taco} from "../../../model/taco.model";
@@ -27,18 +27,18 @@ export class TacoDetailComponent implements OnInit {
   }
 
   backToList() {
-    this.router.navigate(['/taco-list']).then();
+    this.router.navigate(['/', 'private', 'taco-list']).then();
   }
 
   onEditTaco(id: number | undefined) {
     if (id) {
-      this.router.navigate(['/edit-taco', id]).then();
+      this.router.navigate(['/', 'private', 'edit-taco', id]).then();
     }
   }
 
   onNavigateToOrder(orderId: number | undefined) {
     if (orderId) {
-      this.router.navigate(['/order-detail', orderId]).then();
+      this.router.navigate(['/', 'private', 'order-detail', orderId]).then();
     }
   }
 }

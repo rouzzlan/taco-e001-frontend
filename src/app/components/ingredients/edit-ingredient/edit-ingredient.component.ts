@@ -51,12 +51,12 @@ export class EditIngredientComponent implements OnInit {
       this.ingredient.name = this.ingredientFormGroup.value.name;
       this.ingredient.type = this.ingredientFormGroup.value.type;
       this.ingredientService.updateIngredient(this.ingredient).subscribe(() => {
-        this.router.navigate(['/ingredient-list']).then();
+        this.router.navigate(['/', 'private', 'ingredient-list']).then();
       })
     }
   }
 
   onCancel() {
-    this.router.navigate(['/ingredient-list']).then();
+    this.router.navigate(['/', 'private', 'ingredient-list']).then();
   }
 }
