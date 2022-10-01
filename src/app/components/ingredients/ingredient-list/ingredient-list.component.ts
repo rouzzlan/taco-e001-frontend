@@ -42,4 +42,9 @@ export class IngredientListComponent implements OnInit {
     });
   }
 
+  performDelete(id: string) {
+    this.ingredientService.deleteIngredient(id).subscribe(() => {
+      this.loadIngredients();
+    })
+  }
 }

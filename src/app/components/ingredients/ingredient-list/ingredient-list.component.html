@@ -23,8 +23,9 @@
         <td mat-cell *matCellDef="let ingredient">
           <div style="float: right">
             <button mat-raised-button color="primary" (click)="performUpdate(ingredient.id)" style="margin-right: 10px">Update</button>
-            <button mat-raised-button color="warn" (click)="performDisable(ingredient.id)" *ngIf="ingredient.isEnabled">Disable</button>
-            <button mat-raised-button color="primary" (click)="performEnable(ingredient.id)" *ngIf="!ingredient.isEnabled">Enable</button>
+            <button mat-raised-button color="accent" (click)="performDisable(ingredient.id)" *ngIf="ingredient.isEnabled" style="margin-right: 10px">Disable</button>
+            <button mat-raised-button color="primary" (click)="performEnable(ingredient.id)" *ngIf="!ingredient.isEnabled" style="margin-right: 10px">Enable</button>
+            <button mat-raised-button color="warn" (click)="performDelete(ingredient.id)">Delete</button>
           </div>
         </td>
       </ng-container>

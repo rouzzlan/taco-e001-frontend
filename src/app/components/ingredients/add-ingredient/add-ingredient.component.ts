@@ -15,7 +15,7 @@ export class AddIngredientComponent implements OnInit {
   types: Observable<string[]> | undefined;
   ingredientFormGroup: FormGroup;
   idFC: FormControl = new FormControl(null, [Validators.required, Validators.pattern('^[a-zA-Z0-9]{4}$')]);
-  nameFC: FormControl = new FormControl(null, [Validators.required, Validators.pattern('^[a-zA-Z\\s]{3,25}$')]);
+  nameFC: FormControl = new FormControl(null, [Validators.required, Validators.pattern('^[a-zA-Z0-9\\s]{3,25}$')]);
   typeFC: FormControl = new FormControl(null, Validators.required);
 
   constructor(private ingredientService: IngredientService, private router: Router) {
