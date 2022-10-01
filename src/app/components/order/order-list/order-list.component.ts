@@ -17,6 +17,7 @@ export class OrderListComponent implements OnInit {
 
   constructor(private service: TacoOrderService, private tacoService: TacoService, private router: Router) {
     this.orders = service.getOrders();
+    console.log(this.orders);
   }
 
   ngOnInit(): void {
