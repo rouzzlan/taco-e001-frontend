@@ -57,7 +57,7 @@ export class EditTacoComponent implements OnInit {
       return ingredient.id;
     });
     this.tacoFormGroup = new FormGroup({
-      name: new FormControl(this.taco?.name, [Validators.required, Validators.min(5)]),
+      name: new FormControl(this.taco?.name, [Validators.required, Validators.pattern('^[a-zA-Z\\s]{3,50}$')]),
       ingredients: new FormControl(chosenIngredients, Validators.required)
     })
   }

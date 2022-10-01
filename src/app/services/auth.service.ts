@@ -44,7 +44,7 @@ export class AuthService {
   }
 
   startLogout() {
-    this.userManager.signoutRedirect();
+    this.userManager.signoutRedirect().then();
   }
 
   tokenExpired(): Promise<boolean> {

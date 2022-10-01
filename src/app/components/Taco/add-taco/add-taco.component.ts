@@ -14,7 +14,7 @@ import {TacoService} from "../../../services/taco.service";
 export class AddTacoComponent implements OnInit {
   ingredientOptions: Ingredient[] | undefined;
   tacoFormGroup: FormGroup;
-  nameFC: FormControl = new FormControl(null, [Validators.required, Validators.min(5)]);
+  nameFC: FormControl = new FormControl(null, [Validators.required, Validators.pattern('^[a-zA-Z\\s]{3,50}$')]);
   ingredientsFC: FormControl = new FormControl(null, Validators.required);
 
   constructor(private ingredientService: IngredientService,

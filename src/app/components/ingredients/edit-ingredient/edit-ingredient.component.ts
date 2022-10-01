@@ -16,7 +16,7 @@ export class EditIngredientComponent implements OnInit {
   ingredient: Ingredient | undefined;
   types: Observable<string[]> | undefined;
   ingredientFormGroup: FormGroup;
-  nameFC: FormControl = new FormControl(null, [Validators.required, Validators.min(3), Validators.max(15)]);
+  nameFC: FormControl = new FormControl(null, [Validators.required, Validators.pattern('^[a-zA-Z\\s]{3,25}$')]);
   typeFC: FormControl = new FormControl(null, Validators.required);
   isEnabledFC: FormControl = new FormControl(null, Validators.required);
 
@@ -29,6 +29,7 @@ export class EditIngredientComponent implements OnInit {
       isEnabled: this.isEnabledFC
     });
     this.ingredientID = this.route.snapshot.params.id;
+    console.log(this.ingredientID);
   }
 
   ngOnInit(): void {
@@ -37,6 +38,7 @@ export class EditIngredientComponent implements OnInit {
 
   public loadData(): void {
     this.ingredientService.getIngredientByID(this.ingredientID).subscribe((_ingredient) => {
+      console.log(_ingredient);
       this.ingredientFormGroup.patchValue({name: _ingredient.name});
       this.ingredientFormGroup.patchValue({type: _ingredient.type});
       this.ingredientFormGroup.patchValue({isEnabled: _ingredient.isEnabled});
