@@ -47,10 +47,10 @@ export class AuthService {
 
   showSnackBar() {
     const snackBarRef = this.snackBar.open('Session Expiring', 'Login', {
-      duration: 5000,
+      duration: 15000,
     });
     snackBarRef.onAction().subscribe(() => {
-      console.log('The snackbar action was triggered!');
+      this.startSignin();
     });
   }
 
