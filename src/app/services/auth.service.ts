@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {SignoutResponse, User, UserManager} from "oidc-client";
 import {Router} from "@angular/router";
 import {environment} from "../../environments/environment";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class AuthService {
   private readonly stsSetting: any;
   private user: User | null;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private snackBar: MatSnackBar) {
     this.stsSetting = environment.authconf;
     this.userManager = new UserManager(this.stsSetting);
     this.user = null;
@@ -28,9 +29,26 @@ export class AuthService {
 
   completeLogin(): Promise<User> {
     return this.userManager.signinRedirectCallback().then(user => {
-      // console.log(user);
       this.user = user;
+      this.awaitExpiration(user.expires_at);
       return user;
+    });
+  }
+
+  awaitExpiration(expirationTime: number) {
+    const timeNow = Math.floor(Date.now() / 1000);
+    const duration = Math.abs(expirationTime - timeNow) - 60;
+    console.log(duration);
+    setTimeout(() => {
+      this.showSnackBar();
+    }, duration * 1000);
+
+  }
+
+  showSnackBar() {
+    // console.log('SESSION EXPIRING');
+    this.snackBar.open('Session Expiring', 'Login', {
+      duration: 5000,
     });
   }
 
