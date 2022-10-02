@@ -50,6 +50,8 @@ export class AuthService {
       duration: 15000,
     });
     snackBarRef.onAction().subscribe(() => {
+      this.userManager.startSilentRenew();
+      // console.log(this.user);
       this.startSignin();
     });
   }
