@@ -41,6 +41,7 @@ import {PublicComponent} from './pages/public/public.component';
 import {PrivateComponent} from './pages/private/private.component';
 import {LoggedOutComponent} from './components/auth/logged-out/logged-out.component';
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { OrdererDetailComponent } from './parts/orderer-detail/orderer-detail.component';
 
 // import { NgXCreditCardsModule } from 'ngx-credit-cards';
 
@@ -67,7 +68,8 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     ToolbarPublicComponent,
     PublicComponent,
     PrivateComponent,
-    LoggedOutComponent
+    LoggedOutComponent,
+    OrdererDetailComponent
   ],
   imports: [
     BrowserModule,

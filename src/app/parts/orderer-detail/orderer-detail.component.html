@@ -1,0 +1,25 @@
+<mat-card class="infoCard">
+  <mat-card-title>Orderer</mat-card-title>
+  <mat-card-subtitle>Information</mat-card-subtitle>
+  <mat-card-actions>
+    <div *ngIf="!infoLoaded;else other_content">
+      <button mat-button (click)="loadOrdererEvent()">Get Info</button>
+    </div>
+  </mat-card-actions>
+</mat-card>
+
+
+<ng-template #other_content>
+  <table *ngIf="orderer">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+    </tr>
+    <tr>
+      <td>{{orderer.id}}</td>
+      <td>{{orderer.name}}</td>
+      <td>{{orderer.email}}</td>
+    </tr>
+  </table>
+</ng-template>

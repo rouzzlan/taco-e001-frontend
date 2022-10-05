@@ -94,6 +94,11 @@
             </mat-card>
           </div>
         </div>
+        <div class="row">
+          <div class="column">
+            <app-orderer-detail [ordererId]="order.orderer_id"></app-orderer-detail>
+          </div>
+        </div>
         <div style="display: flex; margin-top: 30px">
           <button mat-raised-button (click)="onNavigateToOrder(order.id)" style="margin-left: auto">
             Details
